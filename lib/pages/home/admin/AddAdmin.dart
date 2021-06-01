@@ -41,6 +41,7 @@ class _AddAdminState extends State<AddAdmin> {
     StorageTaskSnapshot taskSnapshot = await storageUploadTask.onComplete;
     String urlOfPhoto = await taskSnapshot.ref.getDownloadURL();
     url = urlOfPhoto;
+    print(url);
   }
 
   String rate = "0";
@@ -171,7 +172,6 @@ class _AddAdminState extends State<AddAdmin> {
                             // Navigator.pushNamed(
                             //     context, HomeScreen.screen);
                           }
-                          image = null;
                           globalKey.currentState.reset();
                         } catch (e) {
                           Scaffold.of(context).showSnackBar(SnackBar(

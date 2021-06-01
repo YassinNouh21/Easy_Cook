@@ -107,28 +107,26 @@ class SignUp extends StatelessWidget {
                             height: 60,
                             onPressed: () async {
                               try {
+                                if (_password != _confpassword) {
+                                  Scaffold.of(context).showSnackBar(SnackBar(
+                                    content: Text(
+                                      "Your Password and Confirmation are not the same",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(fontSize: 15),
+                                    ),
+                                    backgroundColor: Colors.red,
+                                  ));
+                                }
                                 if (globalKey.currentState.validate()) {
                                   globalKey.currentState.save();
                                   final result = await _auth.createAccount(
                                       _email, _password);
                                   Navigator.pushNamed(
                                       context, HomeScreen.screen);
-                                }
-                              } catch (e) {
-                                Scaffold.of(context).showSnackBar(SnackBar(
-                                  content: Text(
-                                    e.message,
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 15),
-                                  ),
-                                  backgroundColor: Colors.red,
-                                ));
-                              }
-                              try {
-                                if (_password != _confpassword) {
+                                } else {
                                   Scaffold.of(context).showSnackBar(SnackBar(
                                     content: Text(
-                                      "Passowrd and Confirmation are not the same",
+                                      "Your Password and Confirmation are not the same",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 15),
                                     ),
@@ -138,7 +136,7 @@ class SignUp extends StatelessWidget {
                               } catch (e) {
                                 Scaffold.of(context).showSnackBar(SnackBar(
                                   content: Text(
-                                    "Your Password and Confirmation are not the same",
+                                    e.message,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(fontSize: 15),
                                   ),

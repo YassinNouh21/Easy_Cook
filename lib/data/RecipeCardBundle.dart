@@ -10,8 +10,10 @@ class RecipeCardBundle {
   String ingredient;
   String howToCookIt;
   String time;
+  String id;
   RecipeCardBundle({
     this.ingredient,
+    this.id,
     this.howToCookIt,
     this.titleOfRecipe,
     this.place,

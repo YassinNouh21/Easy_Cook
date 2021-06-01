@@ -17,6 +17,7 @@ class DataFireStore {
           'time': r1.time,
           'ingredients': r1.ingredient,
           'URL': r1.thumbnailUrl,
+          'id': r1.id,
         })
         .then((value) => print("User Added"))
         .catchError((error) => print("Failed to add user: $error"));
@@ -35,6 +36,7 @@ class DataFireStore {
           titleOfRecipe: data['title'],
           howToCookIt: data['how'],
           ingredient: data['ingredients'],
+          id: doc.documentID,
           thumbnailUrl: data['URL']));
     }
     return bundle;

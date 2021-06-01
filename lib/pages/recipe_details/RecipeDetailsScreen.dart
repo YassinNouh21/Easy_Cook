@@ -20,8 +20,11 @@ class RecipeDetailsScreen extends StatelessWidget {
     return Scaffold(
         floatingActionButton: admin
             ? FloatingActionButton(
-                child: Icon(Icons.delete),
-                backgroundColor: Colors.cyan,
+                child: Icon(
+                  Icons.delete,
+                  color: Colors.red,
+                ),
+                backgroundColor: Colors.white,
               )
             : Text('null'),
         extendBodyBehindAppBar: true,
@@ -37,29 +40,6 @@ class RecipeDetailsScreen extends StatelessWidget {
                     children: [
                       SizedBox(
                         height: 10,
-                      ),
-                      Align(
-                        alignment: Alignment.topCenter,
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 70),
-                          child: FlatButton(
-                            minWidth: double.infinity,
-                            height: 60,
-                            onPressed: () {},
-                            color: kPrimaryColor,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            child: Text(
-                              "Delete",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                                color: Colors.red,
-                              ),
-                            ),
-                          ),
-                        ),
                       ),
                       SizedBox(
                         height: size * 1,
